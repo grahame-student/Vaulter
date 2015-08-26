@@ -8,15 +8,13 @@ more features to make editing the save data even easier and hopefully safer.
 In the very very very early stages, seriously don't expect much!
 
 Implemented so far:
-	Decrypt and open files in .sav format
-	Rough cut of the class structure to hold data from the decrypted JSON
+- Decrypt and open files in .sav format
+- Rough cut of the class structure to hold data from the decrypted JSON
 
 Notes:
-	- Uses the JSON.net library to simplify reading the save data
-	- Only tested with saves from Android
-	- I'm very new to C# so if I do anything too nasty do let me know, I'm here
-      to learn too!
-	- I'm not particularly keen to include LunchBox manipulation, I don't want
-      to discourage Bethesda from continuing to improve the game in the future
+- Uses the JSON.net library to simplify reading the save data
+- Only tested with saves from Android
+- I'm very new to C# so if I do anything too nasty do let me know, I'm here to learn too!
+- I'm not particularly keen to include LunchBox manipulation, I don't want to discourage Bethesda from continuing to improve the game in the future
 	  
 	  Fork, share and enjoy :)
