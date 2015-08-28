@@ -37,6 +37,7 @@ namespace Valuter
 	public partial class MainForm : Form
 	{
 		private SaveFile saveData = new SaveFile();
+		private bool saveFileLoaded;
 		
 		public MainForm()
 		{
@@ -105,20 +106,48 @@ namespace Valuter
 		private void SaveData_FileOpened(Object sender, FileOpenedArgs e)
 		{
 			saveData = e.saveFile;
+			BindProperties();
+			
 			tabTopLevelGroup.Visible = (saveData != null);
+			saveFileLoaded = true;
+		}
+		
+		private void BindProperties()
+		{
+			BindVaultProperties();
+		}
+		
+		private void BindVaultProperties()
+		{
+			txtCaps.DataBindings.Add("Text", saveData, ".vault.storage.resources.Nuka", false, DataSourceUpdateMode.OnPropertyChanged);
+			txtEnergy.DataBindings.Add("Text", saveData, ".vault.storage.resources.Energy", false, DataSourceUpdateMode.OnPropertyChanged);
+			txtFood.DataBindings.Add("Text", saveData, ".vault.storage.resources.Food", false, DataSourceUpdateMode.OnPropertyChanged);
+			txtWater.DataBindings.Add("Text", saveData, ".vault.storage.resources.Water", false, DataSourceUpdateMode.OnPropertyChanged);
+			txtStimPack.DataBindings.Add("Text", saveData, ".vault.storage.resources.StimPack", false, DataSourceUpdateMode.OnPropertyChanged);
+			txtRadAway.DataBindings.Add("Text", saveData, ".vault.storage.resources.RadAway", false, DataSourceUpdateMode.OnPropertyChanged);
 		}
 		
 		private void QuitToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			Close();
 		}
+		
 		void SaveToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			// TODO: Save file using current file name!
 		}
+		
 		void SaveAsToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			// TODO: Open save dialog to save with different name!
+		}
+		
+		void EnableSaving(object sender, EventArgs e)
+		{
+			saveToolStripMenuItem.Enabled = saveFileLoaded;
+			saveAsToolStripMenuItem.Enabled = saveFileLoaded;
+			
+			System.Diagnostics.Debug.WriteLine(saveData.vault.storage.resources.Nuka);
 		}
 	}
 }
