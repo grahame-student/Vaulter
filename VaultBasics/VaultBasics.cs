@@ -27,6 +27,8 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
+using FOSSaveData;
+
 namespace VaultBasics
 {
 	/// <summary>
@@ -34,6 +36,8 @@ namespace VaultBasics
 	/// </summary>
 	public partial class VaultBasics : UserControl
 	{
+		private Resources storedResources;
+		
 		public delegate void PropertyChangedHandler();
 		
 		[Category("Action")]
@@ -45,16 +49,26 @@ namespace VaultBasics
 			InitializeComponent();
 		}
 		
-		public void Bind()
+		public void BindProperties(SaveFile saveData)
 		{
+			storedResources = saveData.vault.storage.resources;
 			// TODO: Asssumes too much about the savefile format, need to abstract the assumption away
 			//       Binding does make updating values much simpler so try not to lose that benefit
-			Bind(txtCaps, ".vault.storage.resources.Nuka");
-			Bind(txtEnergy, ".vault.storage.resources.Energy");
-			Bind(txtFood, ".vault.storage.resources.Food");
-			Bind(txtWater, ".vault.storage.resources.Water");
-			Bind(txtStimPack, ".vault.storage.resources.StimPack");
-			Bind(txtRadAway, ".vault.storage.resources.RadAway");
+			Bind(txtCaps, "Nuka");
+			Bind(txtEnergy, "Energy");
+			Bind(txtFood, "Food");
+			Bind(txtWater, "Water");
+			Bind(txtStimPack, "StimPack");
+			Bind(txtRadAway, "RadAway");
+		}
+		
+		private void Bind(IBindableComponent control, string property)
+		{
+			if (control != null)
+			{
+				control.DataBindings.Add("Text", storedResources, property, true, DataSourceUpdateMode.OnPropertyChanged,
+				                         0, "#.00");
+			}
 		}
 		
         private void OnPropertyChanged(object sender, EventArgs e)

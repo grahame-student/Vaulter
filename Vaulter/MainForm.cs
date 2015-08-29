@@ -29,7 +29,9 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Valuter
+using FOSSaveData;
+
+namespace Vaulter
 {
 	/// <summary>
 	/// Description of MainForm.
@@ -136,7 +138,7 @@ namespace Valuter
 			else
 			{
 				_textBrush = new SolidBrush(e.ForeColor);
-				e.DrawBackground();
+				graphics.FillRectangle(Brushes.Transparent, e.Bounds);
 			}
 			
 			var _tabFont = e.Font;
@@ -158,31 +160,10 @@ namespace Valuter
 		
 		private void BindProperties()
 		{
-			BindVaultProperties();
+			vaultBasics.BindProperties(saveData);
 		}
 		
-		private void BindVaultProperties()
-		{
-			// TODO: Asssumes too much about the savefile format, need to abstract the assumption away
-			//       Binding does make updating values much simpler so try not to lose that benefit
-			Bind(txtCaps, ".vault.storage.resources.Nuka");
-			Bind(txtEnergy, ".vault.storage.resources.Energy");
-			Bind(txtFood, ".vault.storage.resources.Food");
-			Bind(txtWater, ".vault.storage.resources.Water");
-			Bind(txtStimPack, ".vault.storage.resources.StimPack");
-			Bind(txtRadAway, ".vault.storage.resources.RadAway");
-		}
-		
-		private void Bind(IBindableComponent control, string property)
-		{
-			if (control != null)
-			{
-				control.DataBindings.Add("Text", saveData, property, true, DataSourceUpdateMode.OnPropertyChanged,
-				                         0, "#.00");
-			}
-		}
-		
-		private void EnableSaving(object sender, EventArgs e)
+		private void EnableSaving()
 		{
 			saveToolStripMenuItem.Enabled = saveFileLoaded;
 			saveAsToolStripMenuItem.Enabled = saveFileLoaded;

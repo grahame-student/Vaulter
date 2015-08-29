@@ -74,7 +74,6 @@
     <Compile Include="Objective.cs" />
     <Compile Include="ObjectiveManager.cs" />
     <Compile Include="PoolData.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatingManager.cs" />
     <Compile Include="RefugeeSpawner.cs" />

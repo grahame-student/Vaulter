@@ -61,5 +61,11 @@
       <DependentUpon>VaultBasics.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FOSSaveData\FOSSaveData.csproj">
+      <Project>{222E76BD-CAC3-4DAE-9029-B95A87285D28}</Project>
+      <Name>FOSSaveData</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

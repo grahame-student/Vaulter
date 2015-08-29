@@ -26,7 +26,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace FOSSaveData
+namespace Vaulter
 {
 	/// <summary>
 	/// Class with program entry point.
