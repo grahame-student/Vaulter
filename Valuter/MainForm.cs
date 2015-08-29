@@ -49,6 +49,7 @@ namespace Valuter
 			saveData.FileOpened += SaveData_FileOpened;
 		}
 		
+		#region Menubar handling
 		private void OpenToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			var dialog = new OpenFileDialog();
@@ -78,6 +79,42 @@ namespace Valuter
 		{
 			saveData.Read(FileContents);
 		}
+		
+		private void SaveToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			SaveDataToDisk(savePath);
+		}
+		
+		private void SaveAsToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			var dialog = new SaveFileDialog();
+			DialogResult result = dialog.ShowDialog();
+			
+			if (result == DialogResult.OK)
+			{
+				savePath = dialog.FileName;
+				SaveDataToDisk(savePath);
+			}
+		}
+		
+		private void SaveDataToDisk(string filePath)
+		{
+			try
+			{
+				File.WriteAllBytes(filePath, saveData.EncryptedData());
+			}
+			catch (Exception ex)
+			{
+				// TODO: Log failure.
+				//       Create a logging class to allow logging of normal events and errors to help with debugging
+			}
+		}
+		
+		private void QuitToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			Close();
+		}
+		#endregion
 		
 		private void tab_DrawItem(object sender, DrawItemEventArgs e)
 		{
@@ -145,51 +182,12 @@ namespace Valuter
 			}
 		}
 		
-		private void QuitToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			Close();
-		}
-		
-		private void SaveToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			SaveDataToDisk(savePath);
-		}
-		
-		private void SaveAsToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			var dialog = new SaveFileDialog();
-			DialogResult result = dialog.ShowDialog();
-			
-			if (result == DialogResult.OK)
-			{
-				savePath = dialog.FileName;
-				SaveDataToDisk(savePath);
-			}
-		}
-		
-		private void SaveDataToDisk(string filePath)
-		{
-			try
-			{
-				File.WriteAllBytes(filePath, saveData.EncryptedData());
-			}
-			catch (Exception ex)
-			{
-				// TODO: Log failure.
-				//       Create a logging class to allow logging of normal events and errors to help with debugging
-			}
-		}
-		
 		private void EnableSaving(object sender, EventArgs e)
 		{
 			saveToolStripMenuItem.Enabled = saveFileLoaded;
 			saveAsToolStripMenuItem.Enabled = saveFileLoaded;
 			
 			System.Diagnostics.Debug.WriteLine(saveData.vault.storage.resources.Nuka);
-		}
-		
-		private void FileToolStripMenuItemClick(object sender, EventArgs e)
-		{
 		}
 	}
 }
