@@ -49,11 +49,9 @@ namespace VaultBasics
 			InitializeComponent();
 		}
 		
-		public void BindProperties(SaveFile saveData)
+		public void BindProperties(Storage storage)
 		{
-			storedResources = saveData.vault.storage.resources;
-			// TODO: Asssumes too much about the savefile format, need to abstract the assumption away
-			//       Binding does make updating values much simpler so try not to lose that benefit
+			storedResources = storage.resources;
 			Bind(txtCaps, "Nuka");
 			Bind(txtEnergy, "Energy");
 			Bind(txtFood, "Food");

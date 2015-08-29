@@ -160,7 +160,13 @@ namespace Vaulter
 		
 		private void BindProperties()
 		{
-			vaultBasics.BindProperties(saveData);
+			BindVaultProperties(saveData.vault);
+				
+		}
+		
+		private void BindVaultProperties(Vault vault)
+		{
+			vaultBasics.BindProperties(vault.storage);
 		}
 		
 		private void EnableSaving()

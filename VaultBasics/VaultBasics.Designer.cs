@@ -209,6 +209,7 @@ namespace VaultBasics
 			this.Controls.Add(this.lblEnergy);
 			this.Controls.Add(this.lblFood);
 			this.Controls.Add(this.lblCaps);
+			this.DoubleBuffered = true;
 			this.Name = "VaultBasics";
 			this.Size = new System.Drawing.Size(218, 186);
 			this.ResumeLayout(false);
