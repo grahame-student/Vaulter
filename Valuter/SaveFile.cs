@@ -24,6 +24,7 @@
 */
 
 using System;
+using System.Text;
 using Newtonsoft.Json;
 
 namespace Valuter
@@ -70,6 +71,20 @@ namespace Valuter
 				
 				FileOpened(this, args);
 			}
+		}
+		
+		public byte[] EncryptedData()
+		{
+			byte[] EncryptedSaveData = null;
+			var UnencryptedSaveFile = JsonConvert.SerializeObject(this);
+			
+			if (UnencryptedSaveFile != null)
+			{
+				var EncryptedString = Cypher.Encrypt(UnencryptedSaveFile);
+				EncryptedSaveData = UTF8Encoding.UTF8.GetBytes(EncryptedString);
+			}
+			
+			return EncryptedSaveData;
 		}
 	}
 }

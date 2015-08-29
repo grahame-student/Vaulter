@@ -37,6 +37,7 @@ namespace Valuter
 	public partial class MainForm : Form
 	{
 		private SaveFile saveData = new SaveFile();
+		private string savePath;
 		private bool saveFileLoaded;
 		
 		public MainForm()
@@ -50,10 +51,13 @@ namespace Valuter
 		
 		private void OpenToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			DialogResult result = openFileDialog1.ShowDialog();
+			var dialog = new OpenFileDialog();
+			DialogResult result = dialog.ShowDialog();
+			
 			if (result == DialogResult.OK)
 			{
-				OpenSaveFile(openFileDialog1.FileName);
+				savePath = dialog.FileName;
+				OpenSaveFile(savePath);
 			}
 		}
 		
@@ -65,7 +69,8 @@ namespace Valuter
 			}
 			catch (Exception ex)
 			{
-				// TODO: Log failure
+				// TODO: Log failure.
+				//       Create a logging class to allow logging of normal events and errors to help with debugging
 			}
 		}
 		
@@ -74,8 +79,10 @@ namespace Valuter
 			saveData.Read(FileContents);
 		}
 		
-		void tab_DrawItem(object sender, DrawItemEventArgs e)
+		private void tab_DrawItem(object sender, DrawItemEventArgs e)
 		{
+			// TODO: Function too big, split up into manageable chunks
+			
 			var tabStrip = sender as TabControl;
 			Graphics graphics = e.Graphics;
 			Brush _textBrush;
@@ -119,6 +126,8 @@ namespace Valuter
 		
 		private void BindVaultProperties()
 		{
+			// TODO: Asssumes too much about the savefile format, need to abstract the assumption away
+			//       Binding does make updating values much simpler so try not to lose that benefit
 			Bind(txtCaps, ".vault.storage.resources.Nuka");
 			Bind(txtEnergy, ".vault.storage.resources.Energy");
 			Bind(txtFood, ".vault.storage.resources.Food");
@@ -141,22 +150,46 @@ namespace Valuter
 			Close();
 		}
 		
-		void SaveToolStripMenuItemClick(object sender, EventArgs e)
+		private void SaveToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			// TODO: Save file using current file name!
+			SaveDataToDisk(savePath);
 		}
 		
-		void SaveAsToolStripMenuItemClick(object sender, EventArgs e)
+		private void SaveAsToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			// TODO: Open save dialog to save with different name!
+			var dialog = new SaveFileDialog();
+			DialogResult result = dialog.ShowDialog();
+			
+			if (result == DialogResult.OK)
+			{
+				savePath = dialog.FileName;
+				SaveDataToDisk(savePath);
+			}
 		}
 		
-		void EnableSaving(object sender, EventArgs e)
+		private void SaveDataToDisk(string filePath)
+		{
+			try
+			{
+				File.WriteAllBytes(filePath, saveData.EncryptedData());
+			}
+			catch (Exception ex)
+			{
+				// TODO: Log failure.
+				//       Create a logging class to allow logging of normal events and errors to help with debugging
+			}
+		}
+		
+		private void EnableSaving(object sender, EventArgs e)
 		{
 			saveToolStripMenuItem.Enabled = saveFileLoaded;
 			saveAsToolStripMenuItem.Enabled = saveFileLoaded;
 			
 			System.Diagnostics.Debug.WriteLine(saveData.vault.storage.resources.Nuka);
+		}
+		
+		private void FileToolStripMenuItemClick(object sender, EventArgs e)
+		{
 		}
 	}
 }

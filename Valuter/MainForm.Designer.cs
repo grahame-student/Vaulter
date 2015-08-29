@@ -12,7 +12,6 @@ namespace Valuter
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
-		private System.Windows.Forms.OpenFileDialog openFileDialog1;
 		private System.Windows.Forms.TabControl tabTopLevelGroup;
 		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.MenuStrip menuStrip1;
@@ -57,11 +56,16 @@ namespace Valuter
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.tabTopLevelGroup = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabVault = new System.Windows.Forms.TabControl();
 			this.tabVaultResources = new System.Windows.Forms.TabPage();
+			this.txtRadAway = new System.Windows.Forms.TextBox();
+			this.txtStimPack = new System.Windows.Forms.TextBox();
+			this.txtWater = new System.Windows.Forms.TextBox();
+			this.txtFood = new System.Windows.Forms.TextBox();
+			this.txtCaps = new System.Windows.Forms.TextBox();
+			this.txtEnergy = new System.Windows.Forms.TextBox();
 			this.lblRadAway = new System.Windows.Forms.Label();
 			this.lblStimPack = new System.Windows.Forms.Label();
 			this.lblWater = new System.Windows.Forms.Label();
@@ -74,22 +78,12 @@ namespace Valuter
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.txtEnergy = new System.Windows.Forms.TextBox();
-			this.txtCaps = new System.Windows.Forms.TextBox();
-			this.txtFood = new System.Windows.Forms.TextBox();
-			this.txtWater = new System.Windows.Forms.TextBox();
-			this.txtStimPack = new System.Windows.Forms.TextBox();
-			this.txtRadAway = new System.Windows.Forms.TextBox();
 			this.tabTopLevelGroup.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabVault.SuspendLayout();
 			this.tabVaultResources.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// openFileDialog1
-			// 
-			this.openFileDialog1.FileName = "openFileDialog1";
 			// 
 			// tabTopLevelGroup
 			// 
@@ -156,6 +150,60 @@ namespace Valuter
 			this.tabVaultResources.TabIndex = 0;
 			this.tabVaultResources.Text = "Resources";
 			this.tabVaultResources.UseVisualStyleBackColor = true;
+			// 
+			// txtRadAway
+			// 
+			this.txtRadAway.Location = new System.Drawing.Point(95, 172);
+			this.txtRadAway.Name = "txtRadAway";
+			this.txtRadAway.Size = new System.Drawing.Size(98, 20);
+			this.txtRadAway.TabIndex = 15;
+			this.txtRadAway.Text = "0";
+			this.txtRadAway.TextChanged += new System.EventHandler(this.EnableSaving);
+			// 
+			// txtStimPack
+			// 
+			this.txtStimPack.Location = new System.Drawing.Point(95, 146);
+			this.txtStimPack.Name = "txtStimPack";
+			this.txtStimPack.Size = new System.Drawing.Size(98, 20);
+			this.txtStimPack.TabIndex = 14;
+			this.txtStimPack.Text = "0";
+			this.txtStimPack.TextChanged += new System.EventHandler(this.EnableSaving);
+			// 
+			// txtWater
+			// 
+			this.txtWater.Location = new System.Drawing.Point(95, 120);
+			this.txtWater.Name = "txtWater";
+			this.txtWater.Size = new System.Drawing.Size(98, 20);
+			this.txtWater.TabIndex = 13;
+			this.txtWater.Text = "0";
+			this.txtWater.TextChanged += new System.EventHandler(this.EnableSaving);
+			// 
+			// txtFood
+			// 
+			this.txtFood.Location = new System.Drawing.Point(95, 94);
+			this.txtFood.Name = "txtFood";
+			this.txtFood.Size = new System.Drawing.Size(98, 20);
+			this.txtFood.TabIndex = 12;
+			this.txtFood.Text = "0";
+			this.txtFood.TextChanged += new System.EventHandler(this.EnableSaving);
+			// 
+			// txtCaps
+			// 
+			this.txtCaps.Location = new System.Drawing.Point(95, 42);
+			this.txtCaps.Name = "txtCaps";
+			this.txtCaps.Size = new System.Drawing.Size(98, 20);
+			this.txtCaps.TabIndex = 11;
+			this.txtCaps.Text = "0";
+			this.txtCaps.TextChanged += new System.EventHandler(this.EnableSaving);
+			// 
+			// txtEnergy
+			// 
+			this.txtEnergy.Location = new System.Drawing.Point(95, 68);
+			this.txtEnergy.Name = "txtEnergy";
+			this.txtEnergy.Size = new System.Drawing.Size(98, 20);
+			this.txtEnergy.TabIndex = 3;
+			this.txtEnergy.Text = "0";
+			this.txtEnergy.TextChanged += new System.EventHandler(this.EnableSaving);
 			// 
 			// lblRadAway
 			// 
@@ -267,54 +315,6 @@ namespace Valuter
 			this.quitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
 			this.quitToolStripMenuItem.Text = "Quit";
 			this.quitToolStripMenuItem.Click += new System.EventHandler(this.QuitToolStripMenuItemClick);
-			// 
-			// txtEnergy
-			// 
-			this.txtEnergy.Location = new System.Drawing.Point(95, 68);
-			this.txtEnergy.Name = "txtEnergy";
-			this.txtEnergy.Size = new System.Drawing.Size(98, 20);
-			this.txtEnergy.TabIndex = 3;
-			this.txtEnergy.Text = "0";
-			// 
-			// txtCaps
-			// 
-			this.txtCaps.Location = new System.Drawing.Point(95, 42);
-			this.txtCaps.Name = "txtCaps";
-			this.txtCaps.Size = new System.Drawing.Size(98, 20);
-			this.txtCaps.TabIndex = 11;
-			this.txtCaps.Text = "0";
-			// 
-			// txtFood
-			// 
-			this.txtFood.Location = new System.Drawing.Point(95, 94);
-			this.txtFood.Name = "txtFood";
-			this.txtFood.Size = new System.Drawing.Size(98, 20);
-			this.txtFood.TabIndex = 12;
-			this.txtFood.Text = "0";
-			// 
-			// txtWater
-			// 
-			this.txtWater.Location = new System.Drawing.Point(95, 120);
-			this.txtWater.Name = "txtWater";
-			this.txtWater.Size = new System.Drawing.Size(98, 20);
-			this.txtWater.TabIndex = 13;
-			this.txtWater.Text = "0";
-			// 
-			// txtStimPack
-			// 
-			this.txtStimPack.Location = new System.Drawing.Point(95, 146);
-			this.txtStimPack.Name = "txtStimPack";
-			this.txtStimPack.Size = new System.Drawing.Size(98, 20);
-			this.txtStimPack.TabIndex = 14;
-			this.txtStimPack.Text = "0";
-			// 
-			// txtRadAway
-			// 
-			this.txtRadAway.Location = new System.Drawing.Point(95, 172);
-			this.txtRadAway.Name = "txtRadAway";
-			this.txtRadAway.Size = new System.Drawing.Size(98, 20);
-			this.txtRadAway.TabIndex = 15;
-			this.txtRadAway.Text = "0";
 			// 
 			// MainForm
 			// 
