@@ -119,12 +119,21 @@ namespace Valuter
 		
 		private void BindVaultProperties()
 		{
-			txtCaps.DataBindings.Add("Text", saveData, ".vault.storage.resources.Nuka", false, DataSourceUpdateMode.OnPropertyChanged);
-			txtEnergy.DataBindings.Add("Text", saveData, ".vault.storage.resources.Energy", false, DataSourceUpdateMode.OnPropertyChanged);
-			txtFood.DataBindings.Add("Text", saveData, ".vault.storage.resources.Food", false, DataSourceUpdateMode.OnPropertyChanged);
-			txtWater.DataBindings.Add("Text", saveData, ".vault.storage.resources.Water", false, DataSourceUpdateMode.OnPropertyChanged);
-			txtStimPack.DataBindings.Add("Text", saveData, ".vault.storage.resources.StimPack", false, DataSourceUpdateMode.OnPropertyChanged);
-			txtRadAway.DataBindings.Add("Text", saveData, ".vault.storage.resources.RadAway", false, DataSourceUpdateMode.OnPropertyChanged);
+			Bind(txtCaps, ".vault.storage.resources.Nuka");
+			Bind(txtEnergy, ".vault.storage.resources.Energy");
+			Bind(txtFood, ".vault.storage.resources.Food");
+			Bind(txtWater, ".vault.storage.resources.Water");
+			Bind(txtStimPack, ".vault.storage.resources.StimPack");
+			Bind(txtRadAway, ".vault.storage.resources.RadAway");
+		}
+		
+		private void Bind(IBindableComponent control, string property)
+		{
+			if (control != null)
+			{
+				control.DataBindings.Add("Text", saveData, property, true, DataSourceUpdateMode.OnPropertyChanged,
+				                         0, "#.00");
+			}
 		}
 		
 		private void QuitToolStripMenuItemClick(object sender, EventArgs e)

@@ -29,12 +29,12 @@ namespace Valuter
 		private System.Windows.Forms.Label lblFood;
 		private System.Windows.Forms.Label lblRadAway;
 		private System.Windows.Forms.Label lblStimPack;
-		private System.Windows.Forms.MaskedTextBox txtCaps;
-		private System.Windows.Forms.MaskedTextBox txtRadAway;
-		private System.Windows.Forms.MaskedTextBox txtStimPack;
-		private System.Windows.Forms.MaskedTextBox txtWater;
-		private System.Windows.Forms.MaskedTextBox txtFood;
-		private System.Windows.Forms.MaskedTextBox txtEnergy;
+		private System.Windows.Forms.TextBox txtEnergy;
+		private System.Windows.Forms.TextBox txtRadAway;
+		private System.Windows.Forms.TextBox txtStimPack;
+		private System.Windows.Forms.TextBox txtWater;
+		private System.Windows.Forms.TextBox txtFood;
+		private System.Windows.Forms.TextBox txtCaps;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -62,12 +62,6 @@ namespace Valuter
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabVault = new System.Windows.Forms.TabControl();
 			this.tabVaultResources = new System.Windows.Forms.TabPage();
-			this.txtRadAway = new System.Windows.Forms.MaskedTextBox();
-			this.txtStimPack = new System.Windows.Forms.MaskedTextBox();
-			this.txtWater = new System.Windows.Forms.MaskedTextBox();
-			this.txtFood = new System.Windows.Forms.MaskedTextBox();
-			this.txtEnergy = new System.Windows.Forms.MaskedTextBox();
-			this.txtCaps = new System.Windows.Forms.MaskedTextBox();
 			this.lblRadAway = new System.Windows.Forms.Label();
 			this.lblStimPack = new System.Windows.Forms.Label();
 			this.lblWater = new System.Windows.Forms.Label();
@@ -80,6 +74,12 @@ namespace Valuter
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.txtEnergy = new System.Windows.Forms.TextBox();
+			this.txtCaps = new System.Windows.Forms.TextBox();
+			this.txtFood = new System.Windows.Forms.TextBox();
+			this.txtWater = new System.Windows.Forms.TextBox();
+			this.txtStimPack = new System.Windows.Forms.TextBox();
+			this.txtRadAway = new System.Windows.Forms.TextBox();
 			this.tabTopLevelGroup.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabVault.SuspendLayout();
@@ -141,8 +141,8 @@ namespace Valuter
 			this.tabVaultResources.Controls.Add(this.txtStimPack);
 			this.tabVaultResources.Controls.Add(this.txtWater);
 			this.tabVaultResources.Controls.Add(this.txtFood);
-			this.tabVaultResources.Controls.Add(this.txtEnergy);
 			this.tabVaultResources.Controls.Add(this.txtCaps);
+			this.tabVaultResources.Controls.Add(this.txtEnergy);
 			this.tabVaultResources.Controls.Add(this.lblRadAway);
 			this.tabVaultResources.Controls.Add(this.lblStimPack);
 			this.tabVaultResources.Controls.Add(this.lblWater);
@@ -157,67 +157,6 @@ namespace Valuter
 			this.tabVaultResources.Text = "Resources";
 			this.tabVaultResources.UseVisualStyleBackColor = true;
 			// 
-			// txtRadAway
-			// 
-			this.txtRadAway.Location = new System.Drawing.Point(95, 172);
-			this.txtRadAway.Mask = "999";
-			this.txtRadAway.Name = "txtRadAway";
-			this.txtRadAway.PromptChar = ' ';
-			this.txtRadAway.Size = new System.Drawing.Size(100, 20);
-			this.txtRadAway.TabIndex = 11;
-			this.txtRadAway.Text = "0";
-			// 
-			// txtStimPack
-			// 
-			this.txtStimPack.Location = new System.Drawing.Point(95, 146);
-			this.txtStimPack.Mask = "999";
-			this.txtStimPack.Name = "txtStimPack";
-			this.txtStimPack.PromptChar = ' ';
-			this.txtStimPack.Size = new System.Drawing.Size(100, 20);
-			this.txtStimPack.TabIndex = 10;
-			this.txtStimPack.Text = "0";
-			// 
-			// txtWater
-			// 
-			this.txtWater.Location = new System.Drawing.Point(95, 120);
-			this.txtWater.Mask = "999999";
-			this.txtWater.Name = "txtWater";
-			this.txtWater.PromptChar = ' ';
-			this.txtWater.Size = new System.Drawing.Size(100, 20);
-			this.txtWater.TabIndex = 9;
-			this.txtWater.Text = "0";
-			// 
-			// txtFood
-			// 
-			this.txtFood.Location = new System.Drawing.Point(95, 94);
-			this.txtFood.Mask = "999999";
-			this.txtFood.Name = "txtFood";
-			this.txtFood.PromptChar = ' ';
-			this.txtFood.Size = new System.Drawing.Size(100, 20);
-			this.txtFood.TabIndex = 8;
-			this.txtFood.Text = "0";
-			// 
-			// txtEnergy
-			// 
-			this.txtEnergy.Location = new System.Drawing.Point(95, 68);
-			this.txtEnergy.Mask = "999999";
-			this.txtEnergy.Name = "txtEnergy";
-			this.txtEnergy.PromptChar = ' ';
-			this.txtEnergy.Size = new System.Drawing.Size(100, 20);
-			this.txtEnergy.TabIndex = 7;
-			this.txtEnergy.Text = "0";
-			// 
-			// txtCaps
-			// 
-			this.txtCaps.Location = new System.Drawing.Point(95, 42);
-			this.txtCaps.Mask = "999999";
-			this.txtCaps.Name = "txtCaps";
-			this.txtCaps.PromptChar = ' ';
-			this.txtCaps.Size = new System.Drawing.Size(100, 20);
-			this.txtCaps.TabIndex = 6;
-			this.txtCaps.Text = "0";
-			this.txtCaps.TextChanged += new System.EventHandler(this.EnableSaving);
-			// 
 			// lblRadAway
 			// 
 			this.lblRadAway.AutoSize = true;
@@ -225,7 +164,7 @@ namespace Valuter
 			this.lblRadAway.Location = new System.Drawing.Point(15, 173);
 			this.lblRadAway.Name = "lblRadAway";
 			this.lblRadAway.Size = new System.Drawing.Size(74, 16);
-			this.lblRadAway.TabIndex = 5;
+			this.lblRadAway.TabIndex = 10;
 			this.lblRadAway.Text = "Rad-Away:";
 			// 
 			// lblStimPack
@@ -235,7 +174,7 @@ namespace Valuter
 			this.lblStimPack.Location = new System.Drawing.Point(21, 147);
 			this.lblStimPack.Name = "lblStimPack";
 			this.lblStimPack.Size = new System.Drawing.Size(68, 16);
-			this.lblStimPack.TabIndex = 4;
+			this.lblStimPack.TabIndex = 8;
 			this.lblStimPack.Text = "StimPack:";
 			// 
 			// lblWater
@@ -245,7 +184,7 @@ namespace Valuter
 			this.lblWater.Location = new System.Drawing.Point(42, 121);
 			this.lblWater.Name = "lblWater";
 			this.lblWater.Size = new System.Drawing.Size(47, 16);
-			this.lblWater.TabIndex = 3;
+			this.lblWater.TabIndex = 7;
 			this.lblWater.Text = "Water:";
 			// 
 			// lblEnergy
@@ -265,7 +204,7 @@ namespace Valuter
 			this.lblFood.Location = new System.Drawing.Point(46, 95);
 			this.lblFood.Name = "lblFood";
 			this.lblFood.Size = new System.Drawing.Size(43, 16);
-			this.lblFood.TabIndex = 1;
+			this.lblFood.TabIndex = 4;
 			this.lblFood.Text = "Food:";
 			// 
 			// lblCaps
@@ -328,6 +267,54 @@ namespace Valuter
 			this.quitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
 			this.quitToolStripMenuItem.Text = "Quit";
 			this.quitToolStripMenuItem.Click += new System.EventHandler(this.QuitToolStripMenuItemClick);
+			// 
+			// txtEnergy
+			// 
+			this.txtEnergy.Location = new System.Drawing.Point(95, 68);
+			this.txtEnergy.Name = "txtEnergy";
+			this.txtEnergy.Size = new System.Drawing.Size(98, 20);
+			this.txtEnergy.TabIndex = 3;
+			this.txtEnergy.Text = "0";
+			// 
+			// txtCaps
+			// 
+			this.txtCaps.Location = new System.Drawing.Point(95, 42);
+			this.txtCaps.Name = "txtCaps";
+			this.txtCaps.Size = new System.Drawing.Size(98, 20);
+			this.txtCaps.TabIndex = 11;
+			this.txtCaps.Text = "0";
+			// 
+			// txtFood
+			// 
+			this.txtFood.Location = new System.Drawing.Point(95, 94);
+			this.txtFood.Name = "txtFood";
+			this.txtFood.Size = new System.Drawing.Size(98, 20);
+			this.txtFood.TabIndex = 12;
+			this.txtFood.Text = "0";
+			// 
+			// txtWater
+			// 
+			this.txtWater.Location = new System.Drawing.Point(95, 120);
+			this.txtWater.Name = "txtWater";
+			this.txtWater.Size = new System.Drawing.Size(98, 20);
+			this.txtWater.TabIndex = 13;
+			this.txtWater.Text = "0";
+			// 
+			// txtStimPack
+			// 
+			this.txtStimPack.Location = new System.Drawing.Point(95, 146);
+			this.txtStimPack.Name = "txtStimPack";
+			this.txtStimPack.Size = new System.Drawing.Size(98, 20);
+			this.txtStimPack.TabIndex = 14;
+			this.txtStimPack.Text = "0";
+			// 
+			// txtRadAway
+			// 
+			this.txtRadAway.Location = new System.Drawing.Point(95, 172);
+			this.txtRadAway.Name = "txtRadAway";
+			this.txtRadAway.Size = new System.Drawing.Size(98, 20);
+			this.txtRadAway.TabIndex = 15;
+			this.txtRadAway.Text = "0";
 			// 
 			// MainForm
 			// 
