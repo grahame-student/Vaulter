@@ -72,8 +72,7 @@ namespace Vaulter
 			}
 			catch (Exception ex)
 			{
-				// TODO: Log failure.
-				//       Create a logging class to allow logging of normal events and errors to help with debugging
+				AppLog.LogError("Exception in OpenSaveFile: " + ex.StackTrace);
 			}
 		}
 		
@@ -107,8 +106,7 @@ namespace Vaulter
 			}
 			catch (Exception ex)
 			{
-				// TODO: Log failure.
-				//       Create a logging class to allow logging of normal events and errors to help with debugging
+				AppLog.LogError("Exception in SaveDataToDisk: " + ex.StackTrace);
 			}
 		}
 		
@@ -161,7 +159,6 @@ namespace Vaulter
 		private void BindProperties()
 		{
 			BindVaultProperties(saveData.vault);
-				
 		}
 		
 		private void BindVaultProperties(Vault vault)
