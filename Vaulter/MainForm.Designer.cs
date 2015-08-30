@@ -42,6 +42,8 @@ namespace Vaulter
 		private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
 		private System.Windows.Forms.TabPage tabVaultBasics;
 		private Dashboard.VaultResources vaultResources;
+		private Vaulter.Dashboard.VaultName vaultName;
+		private System.Windows.Forms.TableLayoutPanel tableVaultLayout;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -68,18 +70,21 @@ namespace Vaulter
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabVault = new System.Windows.Forms.TabControl();
 			this.tabVaultBasics = new System.Windows.Forms.TabPage();
-			this.vaultResources = new Dashboard.VaultResources();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.tableVaultLayout = new System.Windows.Forms.TableLayoutPanel();
+			this.vaultName = new Vaulter.Dashboard.VaultName();
+			this.vaultResources = new Vaulter.Dashboard.VaultResources();
 			this.tabTopLevelGroup.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabVault.SuspendLayout();
 			this.tabVaultBasics.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
+			this.tableVaultLayout.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabTopLevelGroup
@@ -128,21 +133,13 @@ namespace Vaulter
 			// 
 			// tabVaultBasics
 			// 
-			this.tabVaultBasics.Controls.Add(this.vaultResources);
+			this.tabVaultBasics.Controls.Add(this.tableVaultLayout);
 			this.tabVaultBasics.Location = new System.Drawing.Point(4, 24);
 			this.tabVaultBasics.Name = "tabVaultBasics";
 			this.tabVaultBasics.Size = new System.Drawing.Size(583, 496);
 			this.tabVaultBasics.TabIndex = 1;
 			this.tabVaultBasics.Text = "Basic Information";
 			this.tabVaultBasics.UseVisualStyleBackColor = true;
-			// 
-			// vaultBasics
-			// 
-			this.vaultResources.Location = new System.Drawing.Point(0, 226);
-			this.vaultResources.Name = "vaultBasics";
-			this.vaultResources.Size = new System.Drawing.Size(583, 270);
-			this.vaultResources.TabIndex = 0;
-			this.vaultResources.PropertyChanged += new Dashboard.VaultResources.PropertyChangedHandler(this.EnableSaving);
 			// 
 			// menuStrip1
 			// 
@@ -195,6 +192,43 @@ namespace Vaulter
 			this.quitToolStripMenuItem.Text = "Quit";
 			this.quitToolStripMenuItem.Click += new System.EventHandler(this.QuitToolStripMenuItemClick);
 			// 
+			// tableVaultLayout
+			// 
+			this.tableVaultLayout.ColumnCount = 2;
+			this.tableVaultLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableVaultLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableVaultLayout.Controls.Add(this.vaultResources, 0, 1);
+			this.tableVaultLayout.Controls.Add(this.vaultName, 0, 0);
+			this.tableVaultLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableVaultLayout.Location = new System.Drawing.Point(0, 0);
+			this.tableVaultLayout.Name = "tableVaultLayout";
+			this.tableVaultLayout.RowCount = 3;
+			this.tableVaultLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableVaultLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableVaultLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableVaultLayout.Size = new System.Drawing.Size(583, 496);
+			this.tableVaultLayout.TabIndex = 2;
+			// 
+			// vaultName
+			// 
+			this.vaultName.AutoSize = true;
+			this.vaultName.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.vaultName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.vaultName.Location = new System.Drawing.Point(3, 3);
+			this.vaultName.Name = "vaultName";
+			this.vaultName.Size = new System.Drawing.Size(186, 28);
+			this.vaultName.TabIndex = 2;
+			// 
+			// vaultResources
+			// 
+			this.vaultResources.AutoSize = true;
+			this.vaultResources.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.vaultResources.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.vaultResources.Location = new System.Drawing.Point(3, 37);
+			this.vaultResources.Name = "vaultResources";
+			this.vaultResources.Size = new System.Drawing.Size(186, 158);
+			this.vaultResources.TabIndex = 3;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,6 +245,8 @@ namespace Vaulter
 			this.tabVaultBasics.ResumeLayout(false);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			this.tableVaultLayout.ResumeLayout(false);
+			this.tableVaultLayout.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

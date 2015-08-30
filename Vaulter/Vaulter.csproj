@@ -61,6 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppLog.cs" />
+    <Compile Include="Dashboard\VaultName.cs" />
+    <Compile Include="Dashboard\VaultName.Designer.cs">
+      <DependentUpon>VaultName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard\VaultResources.cs" />
     <Compile Include="Dashboard\VaultResources.Designer.cs">
       <DependentUpon>VaultResources.cs</DependentUpon>
@@ -76,6 +80,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dashboard\VaultName.resx">
+      <DependentUpon>VaultName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\VaultResources.resx">
       <DependentUpon>VaultResources.cs</DependentUpon>
     </EmbeddedResource>

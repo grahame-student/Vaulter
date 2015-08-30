@@ -163,6 +163,7 @@ namespace Vaulter
 		
 		private void BindVaultProperties(Vault vault)
 		{
+			vaultName.BindProperties(vault);
 			vaultResources.BindProperties(vault.storage);
 		}
 		
