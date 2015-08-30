@@ -163,15 +163,13 @@ namespace Vaulter
 		
 		private void BindVaultProperties(Vault vault)
 		{
-			vaultBasics.BindProperties(vault.storage);
+			vaultResources.BindProperties(vault.storage);
 		}
 		
 		private void EnableSaving()
 		{
 			saveToolStripMenuItem.Enabled = saveFileLoaded;
 			saveAsToolStripMenuItem.Enabled = saveFileLoaded;
-			
-			System.Diagnostics.Debug.WriteLine(saveData.vault.storage.resources.Nuka);
 		}
 	}
 }

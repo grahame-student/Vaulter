@@ -29,12 +29,12 @@ using System.Windows.Forms;
 
 using FOSSaveData;
 
-namespace VaultBasics
+namespace Vaulter.Dashboard
 {
 	/// <summary>
-	/// Description of UserControl1.
+	/// Description of VaultResources.
 	/// </summary>
-	public partial class VaultBasics : UserControl
+	public partial class VaultResources : UserControl
 	{
 		private Resources storedResources;
 		
@@ -44,7 +44,7 @@ namespace VaultBasics
         [Description("Fires when any text field changes.")]
 		public event PropertyChangedHandler PropertyChanged;
 		
-		public VaultBasics()
+		public VaultResources()
 		{
 			InitializeComponent();
 		}

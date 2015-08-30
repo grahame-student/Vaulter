@@ -23,9 +23,9 @@
 * Or in the LICENSE file
 */
 
-namespace VaultBasics
+namespace Vaulter.Dashboard
 {
-	partial class VaultBasics
+	partial class VaultResources
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -197,6 +197,7 @@ namespace VaultBasics
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSize = true;
 			this.Controls.Add(this.txtRadAway);
 			this.Controls.Add(this.txtStimPack);
 			this.Controls.Add(this.txtWater);

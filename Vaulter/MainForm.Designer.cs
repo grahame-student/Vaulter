@@ -41,7 +41,7 @@ namespace Vaulter
 		private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
 		private System.Windows.Forms.TabPage tabVaultBasics;
-		private VaultBasics.VaultBasics vaultBasics;
+		private Dashboard.VaultResources vaultResources;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -68,7 +68,7 @@ namespace Vaulter
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabVault = new System.Windows.Forms.TabControl();
 			this.tabVaultBasics = new System.Windows.Forms.TabPage();
-			this.vaultBasics = new VaultBasics.VaultBasics();
+			this.vaultResources = new Dashboard.VaultResources();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,7 +128,7 @@ namespace Vaulter
 			// 
 			// tabVaultBasics
 			// 
-			this.tabVaultBasics.Controls.Add(this.vaultBasics);
+			this.tabVaultBasics.Controls.Add(this.vaultResources);
 			this.tabVaultBasics.Location = new System.Drawing.Point(4, 24);
 			this.tabVaultBasics.Name = "tabVaultBasics";
 			this.tabVaultBasics.Size = new System.Drawing.Size(583, 496);
@@ -138,12 +138,11 @@ namespace Vaulter
 			// 
 			// vaultBasics
 			// 
-			this.vaultBasics.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.vaultBasics.Location = new System.Drawing.Point(0, 0);
-			this.vaultBasics.Name = "vaultBasics";
-			this.vaultBasics.Size = new System.Drawing.Size(583, 496);
-			this.vaultBasics.TabIndex = 0;
-			this.vaultBasics.PropertyChanged += new VaultBasics.VaultBasics.PropertyChangedHandler(this.EnableSaving);
+			this.vaultResources.Location = new System.Drawing.Point(0, 226);
+			this.vaultResources.Name = "vaultBasics";
+			this.vaultResources.Size = new System.Drawing.Size(583, 270);
+			this.vaultResources.TabIndex = 0;
+			this.vaultResources.PropertyChanged += new Dashboard.VaultResources.PropertyChangedHandler(this.EnableSaving);
 			// 
 			// menuStrip1
 			// 

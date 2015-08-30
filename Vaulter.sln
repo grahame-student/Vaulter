@@ -4,8 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # SharpDevelop 5.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestVaulter", "TestVaulter\TestVaulter.csproj", "{8D04AD69-4F1A-4177-A6FC-E1F83A6E0934}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaultBasics", "VaultBasics\VaultBasics.csproj", "{53C6BA02-FB7A-486E-BE79-CF06F91A8FA1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FOSSaveData", "FOSSaveData\FOSSaveData.csproj", "{222E76BD-CAC3-4DAE-9029-B95A87285D28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vaulter", "Vaulter\Vaulter.csproj", "{BFF066DC-3712-4ECA-ABE4-56F1D3C7EC35}"
@@ -20,10 +18,6 @@ Global
 		{8D04AD69-4F1A-4177-A6FC-E1F83A6E0934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D04AD69-4F1A-4177-A6FC-E1F83A6E0934}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D04AD69-4F1A-4177-A6FC-E1F83A6E0934}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53C6BA02-FB7A-486E-BE79-CF06F91A8FA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53C6BA02-FB7A-486E-BE79-CF06F91A8FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53C6BA02-FB7A-486E-BE79-CF06F91A8FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53C6BA02-FB7A-486E-BE79-CF06F91A8FA1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{222E76BD-CAC3-4DAE-9029-B95A87285D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{222E76BD-CAC3-4DAE-9029-B95A87285D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{222E76BD-CAC3-4DAE-9029-B95A87285D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
