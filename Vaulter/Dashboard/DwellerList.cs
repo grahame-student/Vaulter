@@ -24,6 +24,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -32,47 +33,40 @@ using FOSSaveData;
 namespace Vaulter.Dashboard
 {
 	/// <summary>
-	/// Description of VaultResources.
+	/// Description of DwellerList.
 	/// </summary>
-	public partial class VaultResources : UserControl
+	public partial class DwellerList : UserControl
 	{
-		// TODO: Look into creating a base class from which these dashboard controls can be derived
-		//       ie VaultResources <- DashboardControl <- UserControl
-		//
-		//       The propertyChanged event could be moved into the DashboardControl
-		//       BindProperties would also be a good candidate if the same datatype were being passed in each time
-		
-		private Resources storedResources;
+		private BindingSource dwellers = new BindingSource();
+//		private BindingList<Dweller> dwellers;
 		
 		public delegate void PropertyChangedHandler();
 		
 		[Category("Action")]
-        [Description("Fires when any text field changes.")]
+        [Description("Fires when text field changes.")]
 		public event PropertyChangedHandler PropertyChanged;
 		
-		public VaultResources()
+		public DwellerList()
 		{
 			InitializeComponent();
 		}
 		
-		public void BindProperties(Storage storage)
-		{
-			storedResources = storage.resources;
-			Bind(txtCaps, "Nuka");
-			Bind(txtEnergy, "Energy");
-			Bind(txtFood, "Food");
-			Bind(txtWater, "Water");
-			Bind(txtStimPack, "StimPack");
-			Bind(txtRadAway, "RadAway");
-		}
+		// TODO: Plan is to allow basic editing in the gridview
+		//       And more detailed editing using a different dashboard control
 		
-		private void Bind(IBindableComponent control, string property)
+		public void BindProperties(Inhabitants inhabitants)
 		{
-			if (control != null)
-			{
-				control.DataBindings.Add("Text", storedResources, property, true, DataSourceUpdateMode.OnPropertyChanged,
-				                         0, "#.00");
-			}
+			dwellers.DataSource = inhabitants.dwellers;
+			gridDwellers.AutoGenerateColumns = false;
+			gridDwellers.DataSource = dwellers;
+			
+			FirstName.DataPropertyName = "name";
+			LastName.DataPropertyName = "lastName";
+			Gender.DataPropertyName = "gender";
+			Level.DataPropertyName = "experience.currentLevel";
+			Strength.DataPropertyName = "stats.stats[1].value";
+			
+			vscrRow.Maximum = gridDwellers.RowCount - gridDwellers.Rows.GetRowCount(DataGridViewElementStates.Displayed);
 		}
 		
         private void OnPropertyChanged(object sender, EventArgs e)
@@ -81,6 +75,16 @@ namespace Vaulter.Dashboard
 			{
 				PropertyChanged();
 			}
+		}
+        
+		void GridDwellersColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			// TODO: Sort the data based on the column clicked.
+		}
+		
+		void VscrRowScroll(object sender, ScrollEventArgs e)
+		{
+			gridDwellers.FirstDisplayedScrollingRowIndex = vscrRow.Value;
 		}
 	}
 }

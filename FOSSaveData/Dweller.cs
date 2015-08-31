@@ -32,7 +32,7 @@ namespace FOSSaveData
 	/// </summary>
 	public class Dweller
 	{
-		public UInt64 serializeId { get; set; }
+		public uint serializeId { get; set; }
 		public string name { get; set; }
 		public string lastName { get; set; }
 		public Happiness happiness { get; set; }
@@ -47,9 +47,9 @@ namespace FOSSaveData
 		public bool assigned { get; set; }
 		public bool sawIncident { get; set; }
 		public bool WillGoToWasteland { get; set; }
-		public UInt64 skinColor { get; set; }
-		public UInt64 hairColor { get; set; }
-		public UInt64 outfitColor { get; set; }
+		public uint skinColor { get; set; }
+		public uint hairColor { get; set; }
+		public uint outfitColor { get; set; }
 		public int pendingExperienceReward { get; set; }
 		public string hair { get; set; }
 		public FOSItem equipedOutfit { get; set; }
@@ -58,9 +58,5 @@ namespace FOSSaveData
 		public int lastChildBorn { get; set; }
 		public string rarity { get; set; }
 		public int deathTime { get; set; }
-		
-		public Dweller()
-		{
-		}
 	}
 }

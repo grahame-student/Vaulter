@@ -46,8 +46,9 @@ namespace Vaulter
 		{
 			InitializeComponent();
 			
-			tabTopLevelGroup.DrawItem += tab_DrawItem;
-			tabVault.DrawItem += tab_DrawItem;
+			tabstripTopLevelGroup.DrawItem += tab_DrawItem;
+			tabstripVault.DrawItem += tab_DrawItem;
+			tabstripInhabitants.DrawItem += tab_DrawItem;
 			saveData.FileOpened += SaveData_FileOpened;
 		}
 		
@@ -72,7 +73,9 @@ namespace Vaulter
 			}
 			catch (Exception ex)
 			{
-				AppLog.LogError("Exception in OpenSaveFile: " + ex.StackTrace);
+				// TODO: Improve error reporting to be more helpful than simply a stacktrace
+				AppLog.LogError("Exception in OpenSaveFile:\n" +
+				                ex.StackTrace);
 			}
 		}
 		
@@ -106,7 +109,8 @@ namespace Vaulter
 			}
 			catch (Exception ex)
 			{
-				AppLog.LogError("Exception in SaveDataToDisk: " + ex.StackTrace);
+				AppLog.LogError("Exception in SaveDataToDisk: \n" +
+				                ex.StackTrace);
 			}
 		}
 		
@@ -152,19 +156,25 @@ namespace Vaulter
 			saveData = e.saveFile;
 			BindProperties();
 			
-			tabTopLevelGroup.Visible = (saveData != null);
+			tabstripTopLevelGroup.Visible = (saveData != null);
 			saveFileLoaded = true;
 		}
 		
 		private void BindProperties()
 		{
 			BindVaultProperties(saveData.vault);
+			BindDwellerProperties(saveData.dwellers);
 		}
 		
 		private void BindVaultProperties(Vault vault)
 		{
 			vaultName.BindProperties(vault);
 			vaultResources.BindProperties(vault.storage);
+		}
+		
+		private void BindDwellerProperties(Inhabitants inhabitants)
+		{
+			dwellerList.BindProperties(inhabitants);
 		}
 		
 		private void EnableSaving()

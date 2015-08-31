@@ -47,7 +47,6 @@ namespace Vaulter.Dashboard
 		public VaultName()
 		{
 			InitializeComponent();
-			
 		}
 		
 		public void BindProperties(Vault vault)

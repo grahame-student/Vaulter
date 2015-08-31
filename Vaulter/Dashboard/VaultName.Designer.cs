@@ -31,7 +31,7 @@ namespace Vaulter.Dashboard
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
-		private System.Windows.Forms.Panel pnlResources;
+		private System.Windows.Forms.Panel pnlName;
 		private System.Windows.Forms.MaskedTextBox txtName;
 		private System.Windows.Forms.Label lblCaps;
 		
@@ -56,24 +56,24 @@ namespace Vaulter.Dashboard
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.pnlResources = new System.Windows.Forms.Panel();
+			this.pnlName = new System.Windows.Forms.Panel();
 			this.txtName = new System.Windows.Forms.MaskedTextBox();
 			this.lblCaps = new System.Windows.Forms.Label();
-			this.pnlResources.SuspendLayout();
+			this.pnlName.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// pnlResources
+			// pnlName
 			// 
-			this.pnlResources.AutoSize = true;
-			this.pnlResources.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.pnlResources.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.pnlResources.Controls.Add(this.txtName);
-			this.pnlResources.Controls.Add(this.lblCaps);
-			this.pnlResources.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlResources.Location = new System.Drawing.Point(0, 0);
-			this.pnlResources.Name = "pnlResources";
-			this.pnlResources.Size = new System.Drawing.Size(203, 28);
-			this.pnlResources.TabIndex = 29;
+			this.pnlName.AutoSize = true;
+			this.pnlName.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.pnlName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.pnlName.Controls.Add(this.txtName);
+			this.pnlName.Controls.Add(this.lblCaps);
+			this.pnlName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pnlName.Location = new System.Drawing.Point(0, 0);
+			this.pnlName.Name = "pnlName";
+			this.pnlName.Size = new System.Drawing.Size(203, 28);
+			this.pnlName.TabIndex = 29;
 			// 
 			// txtName
 			// 
@@ -100,11 +100,11 @@ namespace Vaulter.Dashboard
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.Controls.Add(this.pnlResources);
+			this.Controls.Add(this.pnlName);
 			this.Name = "VaultName";
 			this.Size = new System.Drawing.Size(203, 28);
-			this.pnlResources.ResumeLayout(false);
-			this.pnlResources.PerformLayout();
+			this.pnlName.ResumeLayout(false);
+			this.pnlName.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

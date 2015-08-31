@@ -33,8 +33,8 @@ namespace Vaulter
 	/// </summary>
 	public static class AppLog
 	{
-		private const string EVENT_FILE = "- Event.log";
-		private const string ERROR_FILE = "- Error.log";
+		private const string EVENT_FILE = " - Event.log";
+		private const string ERROR_FILE = " - Error.log";
 		
 		private static string logEventPath = null;
 		private static string logErrorPath = null;
@@ -42,11 +42,19 @@ namespace Vaulter
 		static AppLog()
 		{
 			string basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-			string baseName = AppDomain.CurrentDomain.FriendlyName;
+			string baseName = Path.GetFileNameWithoutExtension(AppDomain.CurrentDomain.FriendlyName);
 			string timeStamp = DateTime.Now.ToString("yyyyMMdd-HHmmss");
 			
-			logEventPath = Path.Combine(basePath, timeStamp + " - " + baseName + EVENT_FILE);
-			logErrorPath = String.Concat(basePath, timeStamp + ERROR_FILE);
+			string logDirectory = Path.Combine(basePath, baseName);
+			EnsureDirectoryExists(logDirectory);
+			
+			logEventPath = Path.Combine(logDirectory, timeStamp + EVENT_FILE);
+			logErrorPath = Path.Combine(logDirectory, timeStamp + ERROR_FILE);
+		}
+		
+		private static void EnsureDirectoryExists(string path)
+		{
+			Directory.CreateDirectory(path);
 		}
 		
 		public static void LogEvent(string logText)

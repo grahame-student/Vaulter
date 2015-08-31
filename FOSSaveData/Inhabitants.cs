@@ -25,6 +25,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace FOSSaveData
 {
@@ -33,7 +34,7 @@ namespace FOSSaveData
 	/// </summary>
 	public class Inhabitants
 	{
-		public List<Dweller> dwellers { get; set; }
+		public BindingList<Dweller> dwellers { get; set; }
 		public List<MrHandy> mrHandys { get; set; }
 		public int id { get; set; }
 		public int mrhId { get; set; }
